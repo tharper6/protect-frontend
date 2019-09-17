@@ -1,18 +1,16 @@
 import { Router } from 'express';
-import db from '../db';
+import db from '../../db';
 
 const router = Router();
 
-router.get('/:blogid', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
-        let [blogtags]: any = await db.blogtags.getAll(req.params.blogid)
-        res.json(blogtags);
+        let tags = await db.tags.getAll();
+        res.json(tags)
     } catch (error) {
         console.log(error)
         res.status(500).json('Code Fudged up!')
     }
 })
-
-
 
 export default router;
