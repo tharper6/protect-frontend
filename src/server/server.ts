@@ -6,6 +6,7 @@ import './middleware/localstrategy';
 import './middleware/bearerstrategy';
 import routes from './routes';
 import { HashPassword } from './utils/security/password';
+import router from './routes/auth/login';
 
 const app = express();
 

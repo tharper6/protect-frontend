@@ -3,6 +3,7 @@ import DetailsCard from '../Components/DetailsCard'
 import { IBlog } from '../utils/interfaces';
 import { RouteComponentProps } from 'react-router';
 import { ITag } from '../utils/interfaces';
+import { json } from '../utils/api';
 
 class DetailsPage extends React.Component<DetailsProps, DetailsState> {
 
@@ -22,10 +23,12 @@ class DetailsPage extends React.Component<DetailsProps, DetailsState> {
 
     async componentDidMount() {
         try {
-            let res = await fetch(`/api/blogs/${this.props.match.params.id}`)
-            let data = await res.json();
-            let res2 = await fetch(`/api/blogtags/${this.props.match.params.id}`)
-            let data2 = await res2.json()
+            let data = await json(`/api/blogs/${this.props.match.params.id}`)
+            let data2 = await json(`/api/blogtag/${this.props.match.params.id}`)
+            // let res = await fetch(`/api/blogs/${this.props.match.params.id}`)
+            // let data = await res.json();
+            // let res2 = await fetch(`/api/blogtag/${this.props.match.params.id}`)
+            // let data2 = await res2.json()
             this.setState({ blogs: data, blogtags: data2 })
         } catch (error) {
             console.log(error)

@@ -34,7 +34,7 @@ router.get('/:id?', async (req, res) => {
     
 })
 
-router.post('/', async (req, res) => {
+router.post('/', isAdmin, async (req, res) => {
     let title = req.body.title
     let content = req.body.content
     let authorid = req.body.authorid

@@ -11,3 +11,8 @@ export interface ITag {
         name: string,
         _created: Date
 }
+
+export interface IUser {
+        userid: string,
+        role: string
+}

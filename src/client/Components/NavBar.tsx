@@ -7,6 +7,7 @@ const NavBar = () => {
         <nav className="border border-dark shadow row justify-content-around py-2">
         <Link to= '/'className="btn btn-info">Home</Link>
         <Link to= '/add' className="btn btn-info">Add</Link>
+        <Link to='/login' className="btn btn-info">Login</Link>
         </nav>
     )
 

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { ITag } from '../utils/interfaces';
+import { json } from '../utils/api'
 
 class Add extends React.Component<IAddProps, IAddState> {
 
@@ -22,16 +23,17 @@ class Add extends React.Component<IAddProps, IAddState> {
             selectedTag: this.state.selectedTag
         }
         try {
-            const res = await fetch('/api/blogs' , {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(newBlog)
-            });
-            if (res.ok) {
+            await json('/api/blogs', 'POST', (newBlog))
+            // // const res = await fetch('/api/blogs' , {
+            // //     method: 'POST',
+            // //     headers: {
+            // //         "Content-Type": "application/json"
+            // //     },
+            // //     body: JSON.stringify(newBlog)
+            // });
+            // if (res.ok) {
                 this.props.history.push('/')
-            }
+            // }
         } catch (error) {
             console.log(error)
         }

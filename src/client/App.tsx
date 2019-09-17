@@ -14,6 +14,7 @@ class App extends React.Component {
         return(
             <Router>
                 <NavBar />
+                <main>
                 <Switch>
                     <Route exact path='/' component={Home} />
                     <Route exact path='/details/:id' component={Details} />
@@ -21,6 +22,7 @@ class App extends React.Component {
                     <Route exact path='/edit/:id' component={Edit} />
                     <Route exact path='/login' component={Login} />
                 </Switch>
+                </main>
             </Router>
         )
     }
